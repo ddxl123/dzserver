@@ -32,13 +32,13 @@ import { need_id_router } from "./routes/main_routes/need_id_route";
 server.use(need_id_router);
 
 //need_id_routes
-import { create_dz_router } from "./routes/multi_routes/need_id_routes/create_dz_page/create_dz_route";
+import { create_dz_router } from "./routes/need_id_routes/create_dz_page/create_dz_route";
 server.use(create_dz_router);
-import { send_review } from "./routes/multi_routes/need_id_routes/dz_page/send_review_route";
+import { send_review } from "./routes/need_id_routes/dz_page/send_review_route";
 server.use(send_review);
 
 //no_id_routes
-import { get_dz_router } from "./routes/multi_routes/no_id_routes/home_page/get_dz_route";
+import { get_dz_router } from "./routes/no_id_routes/home_page/get_dz_route";
 server.use(get_dz_router);
-import { enter_dz_router } from "./routes/multi_routes/no_id_routes/dz_page/enter_dz_route";
+import { enter_dz_router } from "./routes/no_id_routes/dz_page/enter_dz_route";
 server.use(enter_dz_router);

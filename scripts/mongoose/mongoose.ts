@@ -29,6 +29,9 @@ var dz_info_schema = new mongoose.Schema({
   short_content: { type: String, required: true },
   create_time: { type: Number, required: true },
   update_time: { type: Number, required: true },
+  //star_count:从dz_star_info中计算
+  //like_count:从dz_like_info中计算
+  //review_count:从dz_review1_info中计算
   //stars:从dz_star_info中寻找
   //likes:从dz_like_info中寻找
   //reviews:从dz_review1_info中寻找

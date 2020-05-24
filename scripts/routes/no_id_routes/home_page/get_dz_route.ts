@@ -1,23 +1,26 @@
 import { Router, Request, Response } from "express";
-import { route_name } from "../../../../route_name";
-import { tosend } from "../../../../utils/tosend";
-import { database } from "../../../../mongoose/mongoose";
+import { route_name } from "../../../route_name";
+import { tosend } from "../../../utils/tosend";
+import { database } from "../../../mongoose/mongoose";
 const router = Router();
 
 var get_count: number = 3;
 
-router.get(route_name.get_dz, (request, response) => {
-  if (
-    request.query == null ||
-    request.query["sort_method"] == null ||
-    request.query["sort_method"] == ""
-  ) {
-    //获得的query或sort_method为null
-    tosend(response, () => response.send({ code: "5001" }));
-    return;
+router.get(
+  route_name.no_id_routes.home_page.get_dz,
+  (request: Request, response: Response) => {
+    if (
+      request.query == null ||
+      request.query["sort_method"] == null ||
+      request.query["sort_method"] == ""
+    ) {
+      //获得的query或sort_method为null
+      tosend(response, () => response.send({ code: "5001" }));
+      return;
+    }
+    toDo(request, response);
   }
-  toDo(request, response);
-});
+);
 
 function user_info() {
   return {
@@ -207,53 +210,7 @@ function toDo(request: Request, response: Response) {
             },
           },
         },
-      ]) 
-        // .lookup({ 
-        //   from: "dz_like_info",
-        //   let: { dz_id: "$_id" },
-        //   pipeline: [
-        //     {
-        //       $match: {
-        //         $expr: {
-        //           $eq: ["$dz_id", "$$dz_id"],
-        //         },
-        //       },
-        //     },
-        //     //TODO: 需要获取长度
-        //   ],
-        //   as: "dz_like_info",
-        // })
-        // .lookup({
-        //   from: "dz_star_info",
-        //   let: { dz_id: "$_id" },
-        //   pipeline: [
-        //     {
-        //       $match: {
-        //         $expr: {
-        //           $eq: ["$dz_id", "$$dz_id"],
-        //         },
-        //       },
-        //     },
-        //     //TODO: 需要获取长度
-        //   ],
-        //   as: "dz_star_info",
-        // })
-        // .project({
-        //   _id: 0,
-        //   dz_id: "$_id",
-        //   username: { $arrayElemAt: ["$user_info.username", 0] },
-        //   user_icon: { $arrayElemAt: ["$user_info.user_icon", 0] },
-        //   title: "$title",
-        //   short_content: "$short_content",
-        //   update_time: "$update_time",
-        //   //TODO:
-        //   review_count: { $arrayElemAt: ["$dz_review1_info.count", 0] },
-        //   reviews: { $arrayElemAt: ["$dz_review1_info.items", 0] },
-        //   //   // star_count: { $size: "$dz_star_info" },
-        //   //   // like_count: { $size: "$dz_like_info" },
-        //   //   // review_count: { $size: "$dz_review1_info" },
-        //   //   // reviews: ["$dz_review1_info.0", "$dz_review1_info.1"],
-        // })
+      ])
         .then((result) => {
           //数据库查询成功
           tosend(response, () => response.send({ code: "5002", data: result }));
