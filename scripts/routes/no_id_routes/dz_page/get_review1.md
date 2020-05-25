@@ -42,9 +42,21 @@
 > > > >
 > > > > `review_count` <kbd>int</kbd>
 > > > >
-> > > > `review0` <kbd>int</kbd>
+> > > > `review0` <kbd>object</kbd>
 > > > >
-> > > > `review1` <kbd>int</kbd>
+> > > > > `reviewer_user_id` <kbd>string</kbd>
+> > > >
+> > > > > `content` <kbd>string</kbd>
+> > > >
+> > > > > `reviewer_username` <kbd>string</kbd>
+> > > >
+> > > > `review1` <kbd>object</kbd>
+> > > >
+> > > > > `reviewer_user_id` <kbd>string</kbd>
+> > > >
+> > > > > `content` <kbd>string</kbd>
+> > > >
+> > > > > `reviewer_username` <kbd>string</kbd>
 > > >
 > > > <br>
 > >
