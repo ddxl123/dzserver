@@ -4,7 +4,7 @@ import "./mongoose/mongoose";
 //服务器
 import express from "express";
 
-const server_id: string = "10.128.71.43";
+const server_id: string = "192.168.137.1";
 const server_port: number = 8081;
 
 //创建服务器对象
